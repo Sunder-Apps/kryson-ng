@@ -18,10 +18,17 @@ import { StorageService } from './storage/storage.service';
 import { CryptoService } from './crypto/crypto.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AlertsService } from './alerts/alerts.service';
+import { AlertsComponent } from './alerts/alerts.component';
+import { DefaultDialogComponent } from './alerts/default-dialog/default-dialog.component';
+import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AlertsComponent,
+    DefaultDialogComponent,
     HomeComponent,
     NotFoundComponent,
     PhotosComponent,
@@ -31,15 +38,18 @@ import { SafePipe } from './pipes/safe.pipe';
     BackgroundComponent,
     SettingsComponent,
     NavbarComponent,
-    SafePipe
+    SafePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
+    AlertsService,
     BackgroundService,
     SettingsService,
     StorageService,
