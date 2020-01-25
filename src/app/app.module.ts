@@ -16,6 +16,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { SettingsService } from './settings/settings.service';
 import { StorageService } from './storage/storage.service';
 import { CryptoService } from './crypto/crypto.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CryptoService } from './crypto/crypto.service';
     ContactComponent,
     BlogComponent,
     BackgroundComponent,
-    SettingsComponent
+    SettingsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
