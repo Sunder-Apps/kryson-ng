@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,12 @@ import { PhotosComponent } from './photos/photos.component';
 import { VideosComponent } from './videos/videos.component';
 import { ContactComponent } from './contact/contact.component';
 import { BlogComponent } from './blog/blog.component';
+import { BackgroundComponent } from './background/background.component';
+import { BackgroundService } from './background/background.service';
+import { SettingsComponent } from './settings/settings.component';
+import { SettingsService } from './settings/settings.service';
+import { StorageService } from './storage/storage.service';
+import { CryptoService } from './crypto/crypto.service';
 
 @NgModule({
   declarations: [
@@ -18,13 +25,22 @@ import { BlogComponent } from './blog/blog.component';
     PhotosComponent,
     VideosComponent,
     ContactComponent,
-    BlogComponent
+    BlogComponent,
+    BackgroundComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    BackgroundService,
+    SettingsService,
+    StorageService,
+    CryptoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
