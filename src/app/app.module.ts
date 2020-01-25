@@ -17,6 +17,7 @@ import { SettingsService } from './settings/settings.service';
 import { StorageService } from './storage/storage.service';
 import { CryptoService } from './crypto/crypto.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     BlogComponent,
     BackgroundComponent,
     SettingsComponent,
-    NavbarComponent
+    NavbarComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

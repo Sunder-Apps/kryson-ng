@@ -1,4 +1,9 @@
-<img class="bg" src="https://i.imgur.com/zQSKQXn.jpg" position="50% 50%" />
-<div class="container c">
+<img class="bg" src="https://i.imgur.com/HBxJwbB.jpg" position="50% 50%" />
+<div class="container">
     <h2>Videos</h2>
+    <div *ngFor="let video of this.videos">
+        <h3>{{ video.title }}</h3>
+        <p>{{ video.description }}</p>
+        <iframe [src]="video.src | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 </div>
