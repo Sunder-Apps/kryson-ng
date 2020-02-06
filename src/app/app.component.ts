@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { BackgroundService } from './background/background.service';
 import { SettingsService } from './settings/settings.service';
+import { CryptoService } from './crypto/crypto.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,15 @@ import { SettingsService } from './settings/settings.service';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
+  konami:boolean = false
+  konamiCode:number[] = [ 38, 38, 40, 40, 37, 39, 37, 39, 66, 65 ]
+  konamiIndex:number = 0
+
   constructor(
     private router:Router,
     private backgroundService:BackgroundService,
-    private settingsService:SettingsService
+    private settingsService:SettingsService,
+    private cryptoService:CryptoService
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -25,5 +31,22 @@ export class AppComponent {
           //this.snap = !settings.animations
       } 
     })
+  }
+
+  ngOnInit () {
+    this.cryptoService.init()
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  keyDown (event: KeyboardEvent) {
+    if (event.keyCode === this.konamiCode[this.konamiIndex]) {
+      this.konamiIndex++
+    } else {
+      this.konamiIndex = 0
+    }
+    if (this.konamiIndex === this.konamiCode.length) {
+      this.konami = true
+      this.konamiIndex = 0
+    }
   }
 }

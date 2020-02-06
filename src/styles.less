@@ -6,7 +6,7 @@ app-root {
     display: block;
     width: 100vw;
     min-height: 100vh;
-    padding: 320px 20px 20px 20px;
+    padding: 220px 20px 20px 20px;
 }
 
 *, *::before, *::after {
@@ -28,7 +28,7 @@ body {
     margin: 0;
     padding: 0;
     color: var(--fore);
-    background-color: var(--white);
+    background-color: var(--black);
     overflow-x: hidden;
 
     &.open {
@@ -46,6 +46,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     //text-shadow: 0px 0px 10px var(--back);
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 h1 {
@@ -53,11 +54,11 @@ h1 {
 }
 
 h2 {
-    font-size: 2em;
+    .fluid(font-size, 300px, 1200px, 30px, 50px);
 }
 
 h3 {
-    font-size: 1em;
+    .fluid(font-size, 300px, 1200px, 20px, 30px);
     font-style: italic;
 }
 
@@ -128,11 +129,13 @@ a {
 
 // Container for Pages
 .container {
-    max-width: unset;
+    max-width: 1000px;
+    margin: auto;
     padding: 20px;
-    padding-bottom: 50px;
     overflow-x: hidden;
     min-height: 100vh;
+    border-radius: 5px;
+    background-color: var(--trans);
 
     &.se {
         display: flex;
@@ -277,9 +280,6 @@ mat-nav-list {
     }
 }
 
-    
-
-
 .bg {
     display: block;
     opacity: 0;
@@ -288,15 +288,5 @@ mat-nav-list {
 }
 
 @media (orientation: portrait) {
-    .container {
-        padding-top: 80px;
-        padding-left: 20px;
-    }
 
-    .page {
-        min-height: ~"calc(100vh - 130px)";
-        margin-top: ~"calc(100vh - 130px)";
-    }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
